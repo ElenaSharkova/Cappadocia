@@ -49,13 +49,38 @@ a{
     color: inherit;/*все ссылки на районе ЧЕРНОГО цвета, дабы перебить синий по умолчанию т.к. inherit заставляет наследовать от родителя*/
     text-decoration: none; /*убрать подчеркивание у всех ссылок*/
 }
-
+ul{
+    list-style: none; /*убрали вообще у всех списков точки или цифры*/
+}
 
 
 .container{
     max-width: 1201px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
     margin: 0 auto; /*ВНЕШНИЕ ОТСТУПЫ сверху и снизу 0, слева справа посередине*/
     padding: 0 15px; /*ВНУТРЕННИЕ ОТСТУПЫ для адаптива, чтобы на мобилке не прилипало к краям слева и справа*/
+}
+
+.page-section{
+    margin: 200px 0; /*отступ от контента сверху и снизу по 200px, помним о схлопывании марджинов*/
+}
+.title{
+    font-family: "balqis";
+    color:#E2AB3F;
+    font-size: 96px;
+    line-height: 128px;
+    font-weight: 300px;
+    margin-bottom: 100px;/*отступ снизу*/
+}
+.title span{
+    font-family: 'RobotoCondensed-LightItalic';
+    color: #000000;
+    font-size: 24px;
+    line-height: 28px;
+    display: block; /*сделали элемент блочным, чтобы удобнее было оперировать*/
+    margin-left: 185px;/*искуственно двигаем контент*/
+    margin-top: -30px;/*искуственно двигаем контент*/
+    font-weight: 200px;
+    
 }
 
 .header{
@@ -117,6 +142,58 @@ a{
     font-size: 56px;
     line-height: 66px;
     font-family: 'RobotoCondensed-LightItalic';
-    margin-top: -65px;
-    margin-right: 85px;
+    margin-top: -65px;/*искуственно двигаем контент*/
+    margin-right: 85px;/*искуственно двигаем контент*/
+}
+.fairy-tail__slider{
+    width: 50%;/*слайдер теперь занимает 50% от ширины страницы*/
+}
+/*ниже класс пришел из js, а не html*/
+.slick-btn{
+    position: absolute;/* всегда прописываем эту штуку, если хотим самостоятельно позиционировать и двигать элемент*/
+    top: 50%;/*поставить переключатели слайдера посередине картинки*/
+    transform: translateY(-50%);/*чтобы точно были посередине*/
+    z-index: 5; /*чтобы все стрелки были поверх всех картинок*/
+    cursor: pointer; /*при наведении появляется рука, типо можно щелкнуть*/
+    background-color: transparent;/*сделать фон прозрачным*/
+    border: none; /*удалить рамки вокруг кнопок*/
+}
+.slick-prev{
+    left: 0;
+}
+.slick-next{
+    right: 0;
+}
+
+.fairy-tail__inner{
+    position: relative;
+}
+
+.fairy-tail__container{
+    max-width: 1201px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
+    margin: 0 auto; /*ВНЕШНИЕ ОТСТУПЫ сверху и снизу 0, слева справа посередине*/
+    padding: 0 15px; /*ВНУТРЕННИЕ ОТСТУПЫ для адаптива, чтобы на мобилке не прилипало к краям слева и справа*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.fairy-tail__body{
+    width: 50%; /*поле под текст теперь занимает 50% от ширины страницы*/
+    margin-left: auto;
+    padding-left: 55px;
+    /*все, что ниже делается для того, чтобы растянуть текста параграфов*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%; /*высота 100% родителя*/
+}
+
+.fairy-tail__text{
+    padding: 10px 0; /*чтобы при добавлении текста текста параграфов не налезали друг на друга*/
+}
+
+.fairy-tail__body-title{
+    font-family: 'RobotoCondensed-Regular';
 }
