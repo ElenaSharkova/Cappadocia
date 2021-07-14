@@ -1,10 +1,122 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box; /*чтобы margin и padding не изменяли заданный размер контейнера*/
+}
+/*Ниже подключение шрифтов*/
+@font-face{
+    font-family: "balqis";
+    src: url('../fonts/alqis.woff2') format("woff2"),
+         url('../fonts/balqis.woff') format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap; /*сначала подгружаются шрифты, которые есть на компе, а потом наши*/
+}
+@font-face{
+    font-family: 'RobotoCondensed-Light';
+    src: url('../fonts/RobotoCondensed-Light.woff2') format("woff2"),
+         url('../fonts/RobotoCondensed-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap; /*сначала подгружаются шрифты, которые есть на компе, а потом наши*/
+}
+@font-face{
+    font-family: 'RobotoCondensed-LightItalic';
+    src: url('../fonts/RobotoCondensed-LightItalic.woff2') format("woff2"),
+        url('../fonts/RobotoCondensed-LightItalic.woff') format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap; /*сначала подгружаются шрифты, которые есть на компе, а потом наши*/
+}
+@font-face{
+    font-family: 'RobotoCondensed-Regular';
+    src: url('../fonts/RobotoCondensed-Regular.woff2') format("woff2"),
+         url('../fonts/RobotoCondensed-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /*сначала подгружаются шрифты, которые есть на компе, а потом наши*/
+}
+
+/*Подключение шрифтов закончилось*/
+
+body{
+    color: #000000;/*весь текст внутри body черного цвета*/
+    font-family: 'RobotoCondensed-Light'; /*подключение шрифта*/
+    font-size: 18px;
+    line-height: 21px;
+}
+a{
+    color: inherit;/*все ссылки на районе ЧЕРНОГО цвета, дабы перебить синий по умолчанию т.к. inherit заставляет наследовать от родителя*/
+    text-decoration: none; /*убрать подчеркивание у всех ссылок*/
+}
 
 
+
+.container{
+    max-width: 1201px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
+    margin: 0 auto; /*ВНЕШНИЕ ОТСТУПЫ сверху и снизу 0, слева справа посередине*/
+    padding: 0 15px; /*ВНУТРЕННИЕ ОТСТУПЫ для адаптива, чтобы на мобилке не прилипало к краям слева и справа*/
+}
+
+.header{
+    background-image: url('../images/header-bg.jpg'); /*Добавили фоновую картинку*/
+    height: 100vh; /*100% высота картинки*/
+    background-repeat: no-repeat; /*запрещаем картинке повторяться*/
+    background-size: cover;/*для растягивания картинки по размеру конкретного экрана*/
+    background-position: bottom center; /*Отцентрировать картинку и подтянуть все что не видно внизу*/
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header__top{
+    display: flex;/*Все элементы поставить друг за другом*/
+    justify-content: space-between;/*Раскидать элементы равномерно по ширине, но у нас раскидываются по высоте, т.к. оси поменяны местами*/
+    padding-top: 72px; /*отступ сверху на макете*/
+    font-size: 24px; /*размер текста*/
+    line-height: 28.13px;/*высота строки*/
+    font-family: 'RobotoCondensed-Regular';/*подключение шрифта*/
     
+}
+ 
+.menu__list-item{
+    display: inline-block;/*элементы списка становятся не друг по другом а в одну строку*/
+}
 
+.menu__list-item + .menu__list-item{ /*применяется к соседу снизу идущему в html, т.е. пропускается самый первый элемент*/
+    margin-left: 52px;
+}
 
+.menu__list-link:hover{
+    text-decoration: underline;/**/
+}
+.header__phone{
+    padding-left: 40px; /*зарезервировали место под значок телефона, размер взят из макета*/
+    position: relative; /* он родитель для след элемента вставки значка телефона*/
+}
+/*вставить перед элементом что-то, в этой штуковине всегда нужно писать content, подразумевается по умолчанию, иначе вообще before работать не будет*/
+.header__phone::before{
+    content: "";
+    position: absolute; /* чтобы значок телефона встал на нужное место относительно самого телефона*/
+    background-image: url(../images/phone-icon.svg); /*если не задать высоту и ширину, то элемент не появится, поэтому срочно задаем размер*/
+    width: 29.96px;
+    height: 30px;
+    left:0; /*расстояние слева от начала зарезервированной область 0*/
 
+}
+.header__title{
+    padding-top: 152px;/*отступ от верхнего контента на 152px*/
+    text-align: center;/*выравниваем посередине*/
+    font-size: 250px;
+    line-height: 334px;
+    font-family: "balqis";
+    font-weight: 300;
+}
 
-
-
-
+.header__title span{
+    display: block; /*сделали элемент блочным, чтобы удобнее было оперировать*/
+    text-align: right; /*отправили его к правому краю*/
+    font-size: 56px;
+    line-height: 66px;
+    font-family: 'RobotoCondensed-LightItalic';
+    margin-top: -65px;
+    margin-right: 85px;
+}
