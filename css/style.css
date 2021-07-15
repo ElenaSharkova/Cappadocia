@@ -55,7 +55,7 @@ ul{
 
 
 .container{
-    max-width: 1201px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
+    max-width: 1230px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
     margin: 0 auto; /*ВНЕШНИЕ ОТСТУПЫ сверху и снизу 0, слева справа посередине*/
     padding: 0 15px; /*ВНУТРЕННИЕ ОТСТУПЫ для адаптива, чтобы на мобилке не прилипало к краям слева и справа*/
 }
@@ -250,4 +250,28 @@ ul{
 /*Ниже Делаем рамку вокруг кнопочки*/
     border: 1px solid #E2AB3F;
     padding: 11px 53px; /*Отступы рамки оттекста сверху снизу и по бокам*/
+}
+
+.hotel__title span{
+    margin-left: 120px;/*искуственно двигаем контент*/
+}
+.hotel__inner{
+    display: flex;
+}
+.hotel__images{
+    margin-right: 100px;
+}
+.hotel_text{
+    margin-bottom: 20px; /*отступы вниз*/
+    
+}
+.hotel__gallery{
+    margin-top: 30px; /*отступ сверху от пред контента 30px*/
+    display: flex;
+    flex-wrap: wrap; /*чтобы картинки переносились на след строку, когда место заполнено*/
+    justify-content: space-between;
+}
+.hotel__gallery a{
+    margin-top: 50px; /*отступ сверху от пред контента 50px*/
+    
 }
