@@ -61,7 +61,8 @@ ul{
 }
 
 .page-section{
-    margin: 200px 0; /*отступ от контента сверху и снизу по 200px, помним о схлопывании марджинов*/
+    margin: 200px auto; /*отступ от контента сверху и снизу по 200px, помним о схлопывании марджинов*/
+    max-width: 1920px; /*слайдер не будет выходить за пределы 1200 даже если у кого-то огромный монитор*/
 }
 .title{
     font-family: "balqis";
@@ -79,7 +80,7 @@ ul{
     display: block; /*сделали элемент блочным, чтобы удобнее было оперировать*/
     margin-left: 185px;/*искуственно двигаем контент*/
     margin-top: -30px;/*искуственно двигаем контент*/
-    font-weight: 200px;
+    font-weight: 300px;
     
 }
 
@@ -196,4 +197,57 @@ ul{
 
 .fairy-tail__body-title{
     font-family: 'RobotoCondensed-Regular';
+}
+
+.our-trip__inner{
+    position: relative;
+}
+.our-trip__content{
+    width: 50%; /*текст будет занимать только половину страницы и не наедет на слайдер из картинок справа*/
+    padding-right: 55px; /*отсуп между картинкой слайдеров и текстом слева*/
+}
+.our-trip__conteiner{
+    max-width: 1201px;/*это ширина из макета, но мы задаем не просто weight, т.к. нужен для адаптива*/
+    margin: 0 auto; /*ВНЕШНИЕ ОТСТУПЫ сверху и снизу 0, слева справа посередине*/
+    padding: 0 15px; /*ВНУТРЕННИЕ ОТСТУПЫ для адаптива, чтобы на мобилке не прилипало к краям слева и справа*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.our-trip__slider{
+    width: 50%;/*слайдер теперь занимает 50% от ширины страницы*/
+    margin-left: auto;
+}
+.fairy-tail__title span{
+    margin-left: 243px;/*искуственно двигаем контент*/
+}
+
+.our-trip__body{
+     /*все, что ниже делается для того, чтобы растянуть текста параграфов*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /*высота 100% родителя*/
+    align-items: start; /*это как-то влияет на обводку вокруг кнопки, что ее не пидарасит на всю страницу*/
+}
+.our-trip__list{
+     padding: 5px 0; /*чтобы при добавлении текста текста параграфов не налезали друг на друга*/
+     font-size: 24px;
+     line-height: 28px;
+}
+.our-trip__list li:first-child{
+    margin-bottom: 20px;
+    font-family: 'RobotoCondensed-Regular';
+}
+
+.our-trip_btn{
+    font-style: normal;
+    font-family: 'RobotoCondensed-Light';
+    font-size: 24px;
+    line-height: 28px;
+/*Ниже Делаем рамку вокруг кнопочки*/
+    border: 1px solid #E2AB3F;
+    padding: 11px 53px; /*Отступы рамки оттекста сверху снизу и по бокам*/
 }
